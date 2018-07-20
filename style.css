@@ -6,13 +6,19 @@ header{
 	padding-right: 20px;
 	color:rgb(255,255,249);
 	text-align: center;
+	font-size: 50px;
 	background:rgb(136,191,191);
 	height: 140px;
-	display: flex;
-	justify-content: space-between;
+	line-height: 140px;
 	align-items: center;
 }
 
-header div {
-	display: inline-flex;
+.container{
+	display: flex;
+	/*display: inline-flex;*/
+	justify-content: space-between;
 }
+.gear{
+	
+}
+
