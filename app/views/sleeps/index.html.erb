@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="bagelee">
+  <meta charset="UTF-8" />
+  <title>CountSleep-day</title>
+  <link rel="stylesheet" href=".stylesheet/style.css" type="text/css" />
+  <link rel="stylesheet" href="./ress.min.css" type="text/css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="button"><%= image_tag ('gear.png',:size=>"60x60")%></div>
+      <div class="title">今日の睡眠時間</div>
+      <div class="button"><%= image_tag 'pen.png'%></div>
+    </div>
+  </header>
+  <div class="day">
+    <table>
+      <tr>
+        <td>0</td>
+        <td class="right-space">12</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="right-space">15</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="right-space">18</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td class="right-space">21</td>
+      </tr>
+    </table>
+  </div>
+  <div class="line"></div>
+  <div class="records">
+    <div class="deeply"></div>
+    <div class="nap"></div>
+    <div class="doze"></div>
+  </div>
+  <div class="grass"><%= image_tag 'grass.png'%></div>
+  <div class="sheep"><%= image_tag 'sheep1A.png'%></div>
+  <div class="balloon"><%= image_tag 'balloon.png'%></div>
+
+</body>
+</html>
+
+
+
+<!-- <h1>Sleeps#index</h1>
+<p>Find me in app/views/sleeps/index.html.erb</p>
+<table>
+  <tr>
+    <th>Id</th><th>start</th><th>finish</th><th>type</th><th></th><th></th>
+  </tr>
+  <% @sleeps.each do |sleep| %>
+  <tr>
+    <td><%= sleep.id %></td>
+    <td><%= sleep.start.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= sleep.type %></td>
+    <td><%= link_to 'Show', sleep_path(sleep) %></td>
+    <td><%= link_to 'Edit', edit_sleep_path(sleep) %></td>
+    <td><%= link_to 'Delete', sleep_path(sleep), method: :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<p><%= link_to '睡眠を記録', new_sleep_path %></p> -->

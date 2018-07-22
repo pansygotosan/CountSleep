@@ -1,0 +1,15 @@
+current directory: /Users/gotoa/Desktop/paplica/CountSleep/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+/Users/gotoa/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180722-15335-1gid86g.rb extconf.rb
+creating Makefile
+
+current directory: /Users/gotoa/Desktop/paplica/CountSleep/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/gotoa/Desktop/paplica/CountSleep/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/gotoa/Desktop/paplica/CountSleep/vendor/bundler/ruby/2.5.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20180722-15335-dpf085/bindex

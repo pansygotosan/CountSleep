@@ -1,0 +1,16 @@
+<h1>Sleeps#show</h1>
+<p>Find me in app/views/sleeps/show.html.erb</p>
+<table>
+  <tr>
+    <th>寝た時間</th>
+    <td><%= @sleep.start.strftime('%Y年%m月%d日 %H時%M分') %></td></tr>
+  <tr>
+    <th>起きた時間</th>
+    <td><%= @sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %></td>
+  </tr>
+  <tr>
+    <th>睡眠の種類</th>
+    <td><%= @sleep.type %></td>
+  </tr>
+</table>
+<p><%= link_to '一覧に戻る', sleeps_url %></p>
