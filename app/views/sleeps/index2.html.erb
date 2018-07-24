@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="bagelee">
+	<meta charset="UTF-8" />
+	<title>CountSleep-week</title>
+	<!-- <link rel="stylesheet" href="./style.css" type="text/css" />
+	<link rel="stylesheet" href="./ress.min.css" type="text/css" /> -->
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'sleeps/edit' %></div>
+	      	<div class="title">今日の睡眠時間</div>
+	      	<div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
+		</div>
+	</header>
+	<div class="week">
+		<table>
+			<tr>
+				<td class="left-space2">6日前</td>
+				<td class="right-space2"></td>
+			</tr>
+			<tr>
+				<td class="left-space2">5日前</td>
+				<td class="right-space2"></td>
+			</tr>
+			<tr>
+				<td class="left-space2">4日前</td>
+				<td class="right-space2"></td>
+			</tr>
+			<tr>
+				<td class="left-space2">３日前</td>
+				<td class="right-space2"></td>
+			</tr>
+			<tr>
+				<td class="left-space2">一昨日</td>
+				<td class="right-space2"></td>
+			</tr>
+			<tr>
+				<td class="left-space2">昨日</td>
+				<td class="right-space2"></td>
+			</tr>
+			<tr>
+				<td class="left-space2">今日</td>
+				<td class="right-space2"></td>
+			</tr>
+		</table>
+	</div>
+	<div class="records">
+		<div class="six"></div>
+		<div class="five"></div>
+		<div class="four"></div>
+		<div class="three"></div>
+		<div class="two"></div>
+		<div class="one"></div>
+		<div class="zero"></div>
+	</div>
+	<div class="goalline"></div>
+
+	<div class="grass"><%= image_tag 'grass.png'%></div>
+  	<div class="sheep"><%= image_tag 'sheep1A.png'%></div>
+  	<div class="balloon"><%= image_tag 'balloon.png'%></div>
+</body>
+</html>

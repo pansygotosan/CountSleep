@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'sleeps/index'
   get 'sleeps/index2'
   get 'sleeps/index3'
-  get 'sleep/setup'
+  get 'sleeps/setup'
   get 'sleeps/show'
   get 'sleeps/new'
   get 'sleeps/edit'
