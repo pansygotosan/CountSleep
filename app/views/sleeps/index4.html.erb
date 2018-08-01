@@ -1,0 +1,35 @@
+<h1>sleeps#index</h1>
+
+<table>
+  <tr>
+    <th>Id</th><th>Title</th><th>Description</th><th></th><th></th><th></th>
+  </tr>
+  <% @sleeps.each do |sleep| %>
+  <tr>
+    <td><%= sleep.id %></td>
+    <td><%= sleep.start.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= sleep.type %></td>
+    <td></td>
+  </tr>
+  <% end %>
+</table>
+<p>-------------------</p>
+<table>
+  <tr>
+  <th>Id</th><th>Title</th><th>Description</th><th></th><th></th><th></th>
+  </tr>
+  <% sum=0 %>
+  <% @sleeps2.each do |sleep| %>
+  <tr>
+    <td><%= sleep.id %></td>
+    <td><%= sleep.start.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %></td>
+    <td><%= sleep.type %></td>
+    <td><%=  h_mm_ss(sleep.finish - sleep.start) %></td>
+    <td><%= h_mm_ss(sum +=sleep.finish - sleep.start)%></td>
+  </tr>
+  <% end %>
+
+  <%= Date.today %>
+</table>

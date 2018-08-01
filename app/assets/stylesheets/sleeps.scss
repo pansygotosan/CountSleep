@@ -27,6 +27,14 @@ header{
 	margin-top: 10px;
 	height: 70px;
 }
+
+.submit-btn {
+	width: 50px;
+	height: 50px;
+	background-image: image-url('submit.png');
+	background-size: cover;
+}
+
 .grass img{
 	width:100%;
 	position: absolute;

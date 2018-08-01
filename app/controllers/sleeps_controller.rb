@@ -2,6 +2,8 @@ class SleepsController < ApplicationController
 	# 認証済みであることを確認
 	before_action :authenticate_user!
 
+	@@range = Date.today.beginning_of_day..Date.today.end_of_day
+
 	def index
 	  @sleeps = current_user.sleeps
 	end
@@ -12,6 +14,12 @@ class SleepsController < ApplicationController
 
 	def index3
 	  @sleeps = current_user.sleeps
+	end
+
+	def index4
+	  @sleeps = current_user.sleeps
+	  @sleeps2 = current_user.sleeps.where(start: @@range)
+
 	end
 
 	def setup
@@ -50,6 +58,7 @@ class SleepsController < ApplicationController
 	end
 
 	private
+
 	def target_sleep sleep_id
 	  current_user.sleeps.where(id: sleep_id).take
 	end
