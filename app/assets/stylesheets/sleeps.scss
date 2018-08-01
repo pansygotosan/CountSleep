@@ -7,6 +7,9 @@ body{
 	font-family: 'Hiragino Maru Gothic ProN';
 }
 header{
+	position: fixed;
+	top:0px;
+	width:100%;
 	padding-left: 10px;
 	padding-right: 10px;
 	color:rgb(255,255,249);
@@ -37,19 +40,19 @@ header{
 
 .grass img{
 	width:100%;
-	position: absolute;
+	position: fixed;
 	bottom:0%;
 }
 .sheep img{
 	width:40%;
-	position: absolute;
+	position: fixed;
 	bottom:10px;
 	right: 10px;
 	
 }
 .balloon img{
 	width:60%;
-	position: absolute;
+	position: fixed;
 	bottom:100px;
 	left:10px;
 	
@@ -202,9 +205,18 @@ header{
 /*一ヶ月*/
 .month{
 	margin:25px;
+	margin-top:80px;
+	margin-bottom:220px;
 }
+.mesh {
+	margin-bottom: -15px;
+}
+
 .mesh img{
+	display: inline-block;
+	margin: -2px;
 	width:41px;
+	height:45px;
 }
 
 /*設定*/
