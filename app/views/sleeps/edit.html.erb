@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="./ress.min.css" type="text/css" /> -->
 </head>
 <body>
+  <%= form_for(@sleep) do |f| %>
   <header>
     <div class="container">
       <div class="button"><%= link_to image_tag("return.png", :size => "50x50"),sleeps_url %></div>
@@ -18,8 +19,6 @@
       <div class="button"><%= f.submit '', class: 'submit-btn' %></div>
     </div>
   </header>
-  
-<%= form_for(@sleep) do |f| %>
 <div class="data">
   <div>
     <%= f.label :寝た時間 %>

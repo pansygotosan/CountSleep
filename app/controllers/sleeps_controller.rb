@@ -26,6 +26,10 @@ class SleepsController < ApplicationController
 	  @sleeps = current_user.sleeps
 	end
 
+	def setgoal
+	  @sleeps = current_user.sleeps
+	end
+
 
 	def show
 	  @sleep = target_sleep params[:id]

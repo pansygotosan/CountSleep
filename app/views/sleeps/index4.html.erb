@@ -10,6 +10,7 @@
     <td><%= sleep.start.strftime('%Y年%m月%d日 %H時%M分') %></td>
     <td><%= sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %></td>
     <td><%= sleep.type %></td>
+    <td><%= link_to 'Delete', sleep_path(sleep), method: :delete %></td>
     <td></td>
   </tr>
   <% end %>
@@ -28,6 +29,7 @@
     <td><%= sleep.type %></td>
     <td><%=  h_mm_ss(sleep.finish - sleep.start) %></td>
     <td><%= h_mm_ss(sum +=sleep.finish - sleep.start)%></td>
+    <td><%= link_to 'Delete', sleep_path(sleep), method: :delete %></td>
   </tr>
   <% end %>
 

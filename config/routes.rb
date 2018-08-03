@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'sleeps/show'
   get 'sleeps/new'
   get 'sleeps/edit'
+  get 'sleeps/setgoal'
+  get 'sleeps/reset'
   devise_for :users
   resources :sleeps
   get 'home/index'

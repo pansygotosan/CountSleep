@@ -13,24 +13,41 @@
 <body>
 	<header>
 		<div class="container">
-			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'sleeps/setup' %></div>
+			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'setup' %></div>
 	      	<div class="title">これまでの睡眠時間</div>
 	      	<div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
 		</div>
 	</header>
 	<div class="month">
-		<% for num in 1..100 do %>
 		<div class="mesh">
-			<% for num in 1..7 do %>
-			<%= image_tag 'mesh.png' %>
+<!-- 			<% for num in 1..100 do %>
+
+				<%= image_tag 'mesh.png' %>
+			<% end %> -->
+			<% sleepgoal=6*3600 %>
+			<% @sleeps.each do |sleep| %>
+			    <% sleep.id %></td>
+			    <% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
+			    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
+			    <% sleeptime=sleep.finish - sleep.start %>
+
+			    <% if sleeptime==0%>
+			    <%= image_tag 'mesh3.png' ,:class=>"mesh1"%>
+			    <% elsif sleeptime>sleepgoal %>
+			    <%= image_tag 'mesh2.png',:class=>"mesh2" %>
+			    <% else %>
+			    <%= image_tag 'mesh.png' ,:class=>"mesh1"%>
+			    <% end %>
+			
 			<% end %>
 		</div>
-		<% end %>
 	</div>
 
 		<div class="grass"><%= image_tag 'grass.png'%></div>
 	  	<div class="sheep"><%= image_tag 'sheep1A.png'%></div>
 	  	<div class="balloon"><%= image_tag 'balloon.png'%></div>
+	  	<div class="wool1"><%= image_tag 'wool1.png'%></div>
+	  	<div class="wool2"><%= image_tag 'wool2.png'%></div>
 
 </body>
 </html>
