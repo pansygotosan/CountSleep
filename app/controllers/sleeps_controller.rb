@@ -14,6 +14,9 @@ class SleepsController < ApplicationController
 
 	def index3
 	  @sleeps = current_user.sleeps
+
+    @day = Date.today
+    @start_date = current_user.created_at.to_date
 	end
 
 	def index4

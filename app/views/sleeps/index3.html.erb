@@ -19,23 +19,58 @@
 		</div>
 	</header>
 	<div class="month">
+
+		<% (@start_date..@day).each do |date| %>
+			<% sleeps_day = @sleeps.where(start: date.in_time_zone.all_day ) %>
+			
+			<% if sleeps_day %>
+				<% sleepgoal=40*3600 %>
+				<% sleepsum=0 %>
+
+				<% sleeps_day.each do |sleep| %>
+					<% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
+				    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
+				    <% sleeptime=sleep.finish - sleep.start %>
+
+				    <% sleepsum+=sleeptime%>
+			    <% end %>
+
+			    <% if sleepsum==0 %>
+			    	<%= image_tag 'mesh2.png' ,:class=>"mesh2"%>
+			    <% elsif sleepsum >= sleepgoal %>
+			    	<%= image_tag 'mesh.png' ,:class=>"mesh1"%>
+			    <% else %>
+			    	<%= image_tag 'mesh3.png' ,:class=>"mesh1"%>
+				<% end %>
+			<% end %>
+		<% end %>
+
 		<div class="mesh">
 			<% sleepgoal=6*3600 %>
+			<% sleepsum=0 %>
+			
+
 			<% @sleeps.each do |sleep| %>
+
 			    <% sleep.id %></td>
 			    <% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
 			    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
 			    <% sleeptime=sleep.finish - sleep.start %>
 
-			    <% if sleeptime==0%>
+			    <%= sleep.start %>
+
+			    <% sleepsum+=sleeptime%>
+
+			    <% if sleepsum==0%>
 			    <%= image_tag 'mesh3.png' ,:class=>"mesh1"%>
-			    <% elsif sleeptime>sleepgoal %>
+			    <% elsif sleepsum<sleepgoal %>
 			    <%= image_tag 'mesh2.png',:class=>"mesh2" %>
-			    <% else %>
+			    <% elsif sleepsum>=sleepgoal %>
 			    <%= image_tag 'mesh.png' ,:class=>"mesh1"%>
 			    <% end %>
 			
 			<% end %>
+
 		</div>
 	</div>
 

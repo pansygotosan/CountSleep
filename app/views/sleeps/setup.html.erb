@@ -21,7 +21,7 @@
 	<div class="setup">
 		<div class="set"><%= link_to 'ユーザー情報の設定', 'user' %></div>
 		<div class="set"><%= link_to '目標睡眠時間', 'setgoal' %></div>
-		<div class="set"><%= link_to 'リセット', 'reset' %></div>
+		<div class="set"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
 
 	</div>
 
