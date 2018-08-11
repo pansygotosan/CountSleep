@@ -7,8 +7,6 @@
 <meta name="apple-mobile-web-app-title" content="bagelee">
 	<meta charset="UTF-8" />
 	<title>CountSleep-setup</title>
-	<!-- <link rel="stylesheet" href="./style.css" type="text/css" />
-	<link rel="stylesheet" href="./ress.min.css" type="text/css" /> -->
 </head>
 <body>
 	<header>
@@ -19,7 +17,7 @@
 		</div>
 	</header>
 	<div class="setup">
-		<div class="set"><%= link_to 'ユーザー情報の設定', 'user' %></div>
+		<div class="set"><%= link_to 'ユーザー情報の変更', 'user' %></div>
 		<div class="set"><%= link_to '目標睡眠時間', 'setgoal' %></div>
 		<div class="set"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
 
