@@ -1,16 +1,59 @@
-<h1>Sleeps#show</h1>
-<p>Find me in app/views/sleeps/show.html.erb</p>
-<table>
-  <tr>
-    <th>寝た時間</th>
-    <td><%= @sleep.start.strftime('%Y年%m月%d日 %H時%M分') %></td></tr>
-  <tr>
-    <th>起きた時間</th>
-    <td><%= @sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %></td>
-  </tr>
-  <tr>
-    <th>睡眠の種類</th>
-    <td><%= @sleep.type %></td>
-  </tr>
-</table>
-<p><%= link_to '一覧に戻る', sleeps_url %></p>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="bagelee">
+  <meta charset="UTF-8" />
+  <title>CountSleep-day</title>
+<!--   <link rel="stylesheet" href="./sleeps.css" type="text/css" />
+  <link rel="stylesheet" href="./ress.min.css" type="text/css" /> -->
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="button"><%= link_to image_tag("return.png", :size => "50x50"),sleeps_url %></div>
+      <div class="title">睡眠時間の登録完了</div>
+      <div class="button"><%= image_tag("none.png", :size => "50x50") %></div>
+    </div>
+  </header>
+<div class="setup">  
+<div class="data">
+  <div>寝た時間</div>
+  <div>
+    <%= @sleep.start.strftime('%Y / %m / %d ー %H：%M') %>
+  </div>
+</div>
+<div class="data">
+  <div>起きた時間</div>
+  <div>
+    <%= @sleep.finish.strftime('%Y / %m / %d ー %H：%M') %>
+  </div>
+</div>  
+<div class="data">
+  <div>睡眠の種類</div>
+  <div>
+    <% if @sleep.type==0%>
+    熟睡
+    <% elsif @sleep.type==1 %>
+    昼寝、仮眠
+    <% else @sleep.type==2 %>
+    うたた寝
+    <% end %>
+  </div>
+</div>  
+  
+</div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
