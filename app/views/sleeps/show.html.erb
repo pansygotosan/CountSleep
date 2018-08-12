@@ -33,7 +33,11 @@
 <div class="data">
   <div>睡眠時間</div>
   <div>
-    <%=  (@sleep.finish - @sleep.start)/3600 %>時間
+    <% sleeptime=@sleep.finish - @sleep.start %>
+    <% s=sleeptime%60 %>
+    <% m=((sleeptime - s) / 60) % 60 %>
+    <% h=((sleeptime- s - m * 60) / (60 ** 2)) % 24 %>
+    <%=  h.to_i %>時間<%= m.to_i  %>分
 
   </div>
 </div>  
