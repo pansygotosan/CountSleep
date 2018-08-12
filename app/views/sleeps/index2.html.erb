@@ -12,7 +12,7 @@
 	<header>
 		<div class="container">
 			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'setup' %></div>
-	      	<div class="title">今日の睡眠時間</div>
+	      	<div class="title">今週の睡眠時間</div>
 	      	<div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
 		</div>
 	</header>
@@ -49,6 +49,27 @@
 		</table>
 	</div>
 	<div class="records">
+
+		<% (@start_date..@day).each do |date| %>
+			<% sleeps_day = @sleeps.where(start: date.in_time_zone.all_day ) %>
+			
+			<% if sleeps_day %>
+				<% sleepgoal=40*3600 %>
+				<% sleepsum=0 %>
+
+				<% sleeps_day.each do |sleep| %>
+					<% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
+				    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
+				    <% sleeptime=sleep.finish - sleep.start %>
+				    <% sleepsum+=sleeptime%>				    
+			    <% end %>
+		<%= sleepsum %>	
+			
+		<%= image_tag("sleep1.png", :size => "50x150") %>    
+			<% end %>
+		<% end %>
+
+
 		<div class="six"></div>
 		<div class="five"></div>
 		<div class="four"></div>

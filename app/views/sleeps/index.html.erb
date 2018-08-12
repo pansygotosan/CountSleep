@@ -10,13 +10,13 @@
   <title>CountSleep-day</title>
 </head>
 <body>
-  <header>
+<!--   <header>
     <div class="container">
       <div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'sleeps/setup' %></div>
       <div class="title">今日の睡眠時間</div>
       <div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
     </div>
-  </header>
+  </header> -->
   <div class="day">
     <table>
       <tr>
@@ -38,14 +38,90 @@
     </table>
   </div>
   <div class="line"></div>
+
+  <% @sleeps.each do |sleep| %>
+    <p><%= sleep.start %> 〜 <%= sleep.finish %></p>
+    <p>
+      
+      <%= sleep.start.day%><%= Date.today.strftime("%d")%><%= sleep.finish.day%>
+      <% if  sleep.start.day== Date.today.strftime("%d").to_i%>
+        <%= sleep.start.hour %>: 
+        <%=  (sleep.start.min.to_f / 30).round * 30 %>
+      <% else %>
+        <%= 0 %>:
+        <%= 0 %>
+      <% end %>
+      〜
+      <% if sleep.finish.day == Date.today.strftime("%d").to_i %>
+        <%=  sleep.finish.hour %> : 
+        <%= (sleep.finish.min.to_f / 30).round * 30 %>
+      <% else %>
+        <%= 23 %>:
+        <%= 60 %>
+      <% end %>
+
+
+      <%= sleep.start.day%><%= Date.today.strftime("%d")%><%= sleep.finish.day%>
+      <% if  sleep.start.day== Date.today.strftime("%d").to_i%>
+        <% starth= sleep.start.hour %>: 
+        <% startm=  sleep.start.min %>
+      <% else %>
+        <% starth=0 %>:
+        <% startm=0 %>
+      <% end %>
+      〜
+      <% if sleep.finish.day == Date.today.strftime("%d").to_i %>
+        <% finishh= sleep.finish.hour %> : 
+        <% finishm=sleep.finish.min %>
+      <% else %>
+        <% finishh=23 %>:
+        <% finishm=60 %>
+      <% end %>
+      <p>
+        <%= start=starth*60+startm %> 
+      </p>
+      <p>
+        <%= finish=finishh*60+finishm %> 
+      </p>
+
+      <p>
+        <%= sleeptime=finish-start %>
+        <%=sleepsize=sleeptime/2 %>
+      </p>
+
+       <% if sleep.type==0%>
+        熟睡
+        <div class="deeply">
+          <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(0,#{sleepsize}px)"),sleep_path(sleep)%>
+        </div>
+      <% elsif sleep.type==1 %>
+        昼寝、仮眠
+        <div class="nap">
+          <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize),sleep_path(sleep)%>
+        </div>
+      <% else sleep.type==2 %>
+        うたた寝
+        <div class="doze">
+          <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize),sleep_path(sleep)%>
+        </div>
+      <% end %> 
+    
+      
+      
+        
+      
+    </p>
+  <% end %>
+
   <div class="records">
-    <div class="deeply"></div>
-    <div class="nap"></div>
-    <div class="doze"></div>
+    
+    
+    
   </div>
+<!-- 
   <div class="grass"><%= image_tag 'grass.png'%></div>
   <div class="sheep"><%= image_tag 'sheep1A.png'%></div>
-  <div class="balloon"><%= image_tag 'balloon.png'%></div>
+  <div class="balloon"><%= image_tag 'balloon.png'%></div> -->
 
 </body>
 </html>

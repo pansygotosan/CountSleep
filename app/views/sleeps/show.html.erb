@@ -13,7 +13,7 @@
   <header>
     <div class="container">
       <div class="button"><%= link_to image_tag("return.png", :size => "50x50"),sleeps_url %></div>
-      <div class="title">睡眠時間の登録完了</div>
+      <div class="title">睡眠時間</div>
       <div class="button"><%= image_tag("none.png", :size => "50x50") %></div>
     </div>
   </header>
@@ -28,6 +28,13 @@
   <div>起きた時間</div>
   <div>
     <%= @sleep.finish.strftime('%Y / %m / %d ー %H：%M') %>
+  </div>
+</div>  
+<div class="data">
+  <div>睡眠時間</div>
+  <div>
+    <%=  (@sleep.finish - @sleep.start)/3600 %>時間
+
   </div>
 </div>  
 <div class="data">
