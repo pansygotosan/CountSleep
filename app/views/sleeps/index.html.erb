@@ -10,13 +10,13 @@
   <title>CountSleep-day</title>
 </head>
 <body>
-<!--   <header>
+  <header>
     <div class="container">
       <div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'sleeps/setup' %></div>
       <div class="title">今日の睡眠時間</div>
       <div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
     </div>
-  </header> -->
+  </header>
   <div class="day">
     <table>
       <tr>
@@ -62,19 +62,15 @@
       <% end %>
 
       <p>
-        <%= sleep.type%>
-        <%= start=starth*60+startm %> 
-        <%= finish=finishh*60+finishm %> 
-      </p>
-
-      <p>
-        <%= sleeptime=finish-start %>
-        <%= sleepsize=sleeptime/2 %>
+        <% start=starth*60+startm %> 
+        <% finish=finishh*60+finishm %> 
+        <% sleeptime=finish-start %>
+        <% sleepsize=sleeptime/2 %>
       </p>
 
       
 
-      <% if starth<=12&&finish<=12 %>
+      <% if starth<=12&&finishh<=12 %>
 
         <% top=start/2 %>
 
@@ -92,14 +88,10 @@
           </div>
         <% end %> 
       
-      <% elsif starth<=12&&finish>=12 %>
+      <% elsif starth<=12&&finishh>=12 %>
 
-        <% start %>
-        <% finish %>
-        <% top=start/2 %>
         <% top1=start/2 %>
         <% top2=0 %>
-        <% sleepsize=sleeptime/2 %>
         <% sleepsize1=(720-start)/2 %>
         <% sleepsize2=(finish-720)/2 %>
 
@@ -121,7 +113,7 @@
         <% end %> 
     
 
-      <% elsif starth>=12&&finish>=12 %>
+      <% elsif starth>=12&&finishh>=12 %>
 
         <% top=(start-720)/2 %>
 
@@ -153,10 +145,10 @@
     
     
   </div>
-<!-- 
+ 
   <div class="grass"><%= image_tag 'grass.png'%></div>
   <div class="sheep"><%= image_tag 'sheep1A.png'%></div>
-  <div class="balloon"><%= image_tag 'balloon.png'%></div> -->
+  <div class="balloon"><%= image_tag 'balloon.png'%></div> 
 
 </body>
 </html>
