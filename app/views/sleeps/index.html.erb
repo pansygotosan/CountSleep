@@ -98,16 +98,22 @@
         <% if sleep.type==0%>
         <div class="deeply">
           <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize1, :style => "transform: translate(50px,#{top1}px)"),sleep_path(sleep)%>
+        </div>
+        <div class="deeply">
           <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(200px,#{top2}px)"),sleep_path(sleep)%>
         </div>
         <% elsif sleep.type==1 %>
           <div class="nap">
             <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize1, :style => "transform: translate(50px,#{top1}px)"),sleep_path(sleep)%>
+          </div>
+          <div class="nap">
             <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(200px,#{top2}px)"),sleep_path(sleep)%>
           </div>
         <% else sleep.type==2 %>
           <div class="doze">
             <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize1, :style => "transform: translate(50px,#{top1}px)"),sleep_path(sleep)%>
+          </div>
+          <div class="doze">
             <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(200px,#{top2}px)"),sleep_path(sleep)%>
           </div>
         <% end %> 
