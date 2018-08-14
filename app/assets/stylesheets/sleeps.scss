@@ -117,6 +117,10 @@ header{
 }
 
 /*1週間の睡眠時間*/
+.week{
+	font-size: 12px;
+	color:rgb(81,72,68);
+}
 .week table {
 	position: absolute;
 	border-collapse: collapse;
@@ -126,16 +130,15 @@ header{
 }
 .week td {
 	padding: 18px;
-	font-size: 12px;
-	color:rgb(81,72,68);
+	
 	
 }
 
 .goalline {
 	position: absolute;
 	width: 1px;
-	height: 360px;
-	top: 80px;
+	height: 380px;
+	top: 75px;
 	left: 55%;
 	transform: translateX(-50%);
 	border-left: dashed 2px gray;
@@ -145,66 +148,20 @@ header{
 	text-align:center
 
 }
-.right-space2{
-	widows:80%
-}
-.six{
-	position: absolute;
-	width: 130px;
-	height:15px;
-	top: 90px;
-	left:75px;
-	background: rgb(136,191,191);
 
-}
-.five{
+
+.records{
 	position: absolute;
-	width: 70px;
-	height:15px;
-	top: 145px;
-	left:75px;
-	background: rgb(90,128,128);
+	top:70px;
 }
-.four{
-	position: absolute;
-	width: 140px;
-	height:15px;
-	top: 199px;
-	left:75px;
-	background: rgb(136,191,191);
+
+.bar{
+padding-left:75px;
+padding-top:17px;
+padding-bottom:17.5px;
 }
-.three{
-	position: absolute;
-	width: 200px;
-	height:15px;
-	top: 252px;
-	left:75px;
-	background: rgb(112,155,155);
-}
-.two{
-	position: absolute;
-	width: 180px;
-	height:15px;
-	top: 305px;
-	left:75px;
-	background: rgb(90,128,128);
-}
-.one{
-	position: absolute;
-	width: 100px;
-	height:15px;
-	top: 360px;
-	left:75px;
-	background: rgb(136,191,191);
-}
-.zero{
-	position: absolute;
-	width: 130px;
-	height:15px;
-	top: 415px;
-	left:75px;
-	background: rgb(136,191,191);
-}
+
+
 
 /*一ヶ月*/
 .month{

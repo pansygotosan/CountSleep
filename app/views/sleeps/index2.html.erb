@@ -9,7 +9,7 @@
 	<title>CountSleep-week</title>
 </head>
 <body>
-	<header>
+ 	<header>
 		<div class="container">
 			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'setup' %></div>
 	      	<div class="title">今週の睡眠時間</div>
@@ -17,81 +17,225 @@
 		</div>
 	</header>
 	<div class="week">
+		<% sleepgoal=6*3600 %>
+		<% six=0 %>
+		<% five=0 %>
+		<% four=0 %>
+		<% tree=0 %>
+		<% two=0 %>
+		<% one=0 %>
+		<% zero=0 %>
+		<% size6=0 %>
+		<% size5=0 %>	
+		<% size4=0 %>
+		<% size3=0 %>
+		<% size2=0 %>
+		<% size1=0 %>
+		<% size0=0 %>
+
+		<div class="records">
+			
+
+
+			<% (@start_date..@day).each do |date| %>
+				<% sleeps_day = @sleeps.where(start: date.in_time_zone.all_day ) %>
+				
+				<% if sleeps_day %>
+					<% sleepgoal=12*3600 %>
+					<% sleepsum=0 %>
+
+					<% sleeps_day.each do |sleep| %>
+						<% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
+					    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
+					    <% sleeptime=sleep.finish - sleep.start %>
+					    <% sleepsum+=sleeptime%>				    
+				    <% end %>
+
+				        <% six=five %>
+						<% five=four %>
+						<% four=tree %>
+						<% tree=two %>
+						<% two=one %>
+						<% one=zero %>
+						<% zero=sleepsum %>
+
+
+						<% size6=six*130/sleepgoal %>
+						<% size5=five*130/sleepgoal %>	
+						<% size4=four*130/sleepgoal %>
+						<% size3=tree*130/sleepgoal %>
+						<% size2=two*130/sleepgoal %>
+						<% size1=one*130/sleepgoal %>
+						<% size0=zero*130/sleepgoal %>
+
+			
+				<% end %>
+			<% end %>
+
+
+			<% if size6>300 %>
+			<% size6=300 %>
+			<% end %>
+			<% if size5>300 %>
+			<% size5=300 %>
+			<% end %>
+			<% if size4>300 %>
+			<% size4=300 %>
+			<% end %>
+			<% if size4>300 %>
+			<% size4=300 %>
+			<% end %>
+			<% if size3>300 %>
+			<% size3=300 %>
+			<% end %>
+			<% if size2>300 %>
+			<% size2=300 %>
+			<% end %>
+			<% if size1>300 %>
+			<% size1=300 %>
+			<% end %>
+			<% if size0>300 %>
+			<% size0=300 %>
+			<% end %>
+
+			
+
+			<% if size1<=80 %>
+
+			<% elsif size1>=220 %>
+
+			<% else %>
+
+			<% end %>
+				<div class="bar">
+					<% if size6<=80 %>
+						<%= image_tag("sleep3.png", :width=>size6, :height=> '16') %>
+					<% elsif size6>=220 %>
+						<%= image_tag("sleep2.png", :width=>size6, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size6, :height=> '16') %>
+					<% end %>
+				</div>
+				<div class="bar">
+					<% if size5<=80 %>
+						<%= image_tag("sleep3.png", :width=>size5, :height=> '16') %>
+					<% elsif size5>=220 %>
+						<%= image_tag("sleep2.png", :width=>size5, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size5, :height=> '16') %>
+					<% end %>
+				</div>
+				<div class="bar">
+					<% if size4<=80 %>
+						<%= image_tag("sleep3.png", :width=>size4, :height=> '16') %>
+					<% elsif size4>=220 %>
+						<%= image_tag("sleep2.png", :width=>size4, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size4, :height=> '16') %>
+					<% end %>
+				</div>
+				<div class="bar">
+					<% if size3<=80 %>
+						<%= image_tag("sleep3.png", :width=>size3, :height=> '16') %>
+					<% elsif size3>=220 %>
+						<%= image_tag("sleep2.png", :width=>size3, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size3, :height=> '16') %>
+					<% end %>
+				</div>
+				<div class="bar">
+					<% if size2<=80 %>
+						<%= image_tag("sleep3.png", :width=>size2, :height=> '16') %>
+					<% elsif size2>=220 %>
+						<%= image_tag("sleep2.png", :width=>size2, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size2, :height=> '16') %>
+					<% end %>
+				</div>
+				<div class="bar">
+					<% if size1<=80 %>
+						<%= image_tag("sleep3.png", :width=>size1, :height=> '16') %>
+					<% elsif size1>=220 %>
+						<%= image_tag("sleep2.png", :width=>size1, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size1, :height=> '16') %>
+					<% end %>
+				</div>
+				<div class="bar">
+					<% if size0<=80 %>
+						<%= image_tag("sleep3.png", :width=>size0, :height=> '16') %>
+					<% elsif size0>=220 %>
+						<%= image_tag("sleep2.png", :width=>size0, :height=> '16') %>
+					<% else %>
+						<%= image_tag("sleep1.png", :width=>size0, :height=> '16') %>
+					<% end %>
+				</div>
+
+		</div>
 		<table>
 			<tr>
 				<td class="left-space2">6日前</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% six %>
+				    <% s=six%60 %>
+				    <% m=((six - s) / 60) % 60 %>
+				    <% h=((six- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 			<tr>
 				<td class="left-space2">5日前</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% five %>
+				    <% s=five%60 %>
+				    <% m=((five - s) / 60) % 60 %>
+				    <% h=((five- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 			<tr>
 				<td class="left-space2">4日前</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% four %>
+				    <% s=four%60 %>
+				    <% m=((four - s) / 60) % 60 %>
+				    <% h=((four- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 			<tr>
 				<td class="left-space2">３日前</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% tree %>
+				    <% s=tree%60 %>
+				    <% m=((tree - s) / 60) % 60 %>
+				    <% h=((tree- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 			<tr>
 				<td class="left-space2">一昨日</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% two %>
+				    <% s=two%60 %>
+				    <% m=((two - s) / 60) % 60 %>
+				    <% h=((two- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 			<tr>
 				<td class="left-space2">昨日</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% one %>
+				    <% s=one%60 %>
+				    <% m=((one - s) / 60) % 60 %>
+				    <% h=((one- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 			<tr>
 				<td class="left-space2">今日</td>
-				<td class="right-space2"></td>
+				<td class="right-space2"><% zero %>
+				    <% s=zero%60 %>
+				    <% m=((zero - s) / 60) % 60 %>
+				    <% h=((zero- s - m * 60) / (60 ** 2)) % 24 %>
+				    <%=  h.to_i %>時間<%= m.to_i  %>分</td>
 			</tr>
 		</table>
+
+
 	</div>
-	<div class="records">
-
-		<% (@start_date..@day).each do |date| %>
-			<% sleeps_day = @sleeps.where(start: date.in_time_zone.all_day ) %>
-			
-			<% if sleeps_day %>
-				<% sleepgoal=40*3600 %>
-				<% sleepsum=0 %>
-
-				<% sleeps_day.each do |sleep| %>
-					<% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
-				    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
-				    <% sleeptime=sleep.finish - sleep.start %>
-				    <% sleepsum+=sleeptime%>				    
-			    <% end %>
-		<%= sleepsum %>	
-			
-		<%= image_tag("sleep1.png", :size => "50x150") %>    
-			<% end %>
-		<% end %>
 
 
-		<div class="six">
-			
-		</div>
-		<div class="five">
-			
-		</div>
-		<div class="four">
-			
-		</div>
-		<div class="three">
-			
-		</div>
-		<div class="two">
-			
-		</div>
-		<div class="one">
-			
-		</div>
-		<div class="zero">
-			
-		</div>
-	</div>
+	
 	<div class="goalline"></div>
 
 	<div class="grass"><%= image_tag 'grass.png'%></div>
