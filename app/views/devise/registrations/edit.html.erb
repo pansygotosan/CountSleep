@@ -54,6 +54,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
+    <div class="field">
+      <%= f.label :目標睡眠時間 %><br />
+      <%= f.select :target_sleeptime,[["1",1], ["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9],["10", 10],["11", 11],["12", 12]] %>時間
+    </div>
+
   <% end %>
 
 

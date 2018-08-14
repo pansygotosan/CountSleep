@@ -14,38 +14,41 @@
   <header>
     <div class="container">
       <div class="button"><%= link_to image_tag("return.png", :size => "50x50"),sleeps_url %></div>
-      <div class="title">睡眠時間を記録</div>
+      <div class="title">睡眠時間を変更</div>
       <div class="button"><%= f.submit '', class: 'submit-btn' %></div>
     </div>
   </header>
-<div class="data">
-  <div>
-    <%= f.label :寝た時間 %>
-  </div>
-  <div>
-    <%= f.datetime_select :start, class: 'form-control' %>
-  </div>
-</div>
-<div class="data">
-  <div>
-    <%= f.label :起きた時間 %>
-  </div>
-  <div>
-    <%= f.datetime_select :finish, class: 'form-control' %>
-  </div>
-</div>  
-<div class="data">
-  <div>
-    <%= f.label :睡眠の種類 %>
-  </div>
-  <div>
-    <%= f.select :type, [["熟睡",0], ["昼寝、仮眠", 1],["うたた寝", 2]] %>
-  </div>
-</div>  
+  <div class="setup">
+    <div class="data">
+      <div>
+        <%= f.label :寝た時間 %>
+      </div>
+      <div>
+        <%= f.datetime_select :start,:use_month_numbers => true,:date_separator=> '/ ',  class: 'form-control' %>
+      </div>
+    </div>
+    <div class="data">
+      <div>
+        <%= f.label :起きた時間 %>
+      </div>
+      <div>
+        <%= f.datetime_select :finish,:use_month_numbers => true,:date_separator=> '/ ', class: 'form-control' %>
+      </div>
+    </div>  
+    <div class="data">
+      <div>
+        <%= f.label :睡眠の種類 %>
+      </div>
+      <div>
+        <%= f.select :type, [["熟睡",0], ["昼寝、仮眠", 1],["うたた寝", 2]] %>
+      </div>
+    </div>  
   
 
   <% end %>
 </div>
+
+  </div>
 
 
 </body>

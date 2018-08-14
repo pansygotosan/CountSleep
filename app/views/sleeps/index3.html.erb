@@ -43,33 +43,7 @@
 			<% end %>
 		<% end %>
 
-<!-- 		<div class="mesh">
-			<% sleepgoal=6*3600 %>
-			<% sleepsum=0 %>
-			
 
-			<% @sleeps.each do |sleep| %>
-
-			    <% sleep.id %></td>
-			    <% sleep.start.strftime('%Y年%m月%d日 %H時%M分') %>
-			    <% sleep.finish.strftime('%Y年%m月%d日 %H時%M分') %>
-			    <% sleeptime=sleep.finish - sleep.start %>
-
-			    <%= sleep.start %>
-
-			    <% sleepsum+=sleeptime%>
-
-			    <% if sleepsum==0%>
-			    <%= image_tag 'mesh3.png' ,:class=>"mesh1"%>
-			    <% elsif sleepsum<sleepgoal %>
-			    <%= image_tag 'mesh2.png',:class=>"mesh2" %>
-			    <% elsif sleepsum>=sleepgoal %>
-			    <%= image_tag 'mesh.png' ,:class=>"mesh1"%>
-			    <% end %>
-			
-			<% end %>
-
-		</div> -->
 	</div>
 
 		<div class="grass"><%= image_tag 'grass.png'%></div>
