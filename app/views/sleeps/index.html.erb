@@ -4,15 +4,44 @@
 <head>
   <meta name="viewport" content="width=device-width">
   <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="bagelee">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="bagelee">
   <meta charset="UTF-8" />
   <title>CountSleep-day</title>
+
+  <script type="text/javascript">
+    var MsgCnt=10; //メッセージの総数
+
+    var Msg=[];
+    Msg[1]="メッセージ1";
+    Msg[2]="メッセージ2";
+    Msg[3]="メッセージ3";
+    Msg[4]="メッセージ4";
+    Msg[5]="メッセージ5";
+    Msg[6]="メッセージ6";
+    Msg[7]="メッセージ7";
+    Msg[8]="メッセージ8";
+    Msg[9]="メッセージ9";
+    Msg[10]="メッセージ10";
+
+    var ary=[];
+    for(var i=0;i<MsgCnt;i++)ary[i]=i+1;
+    function arySort(){
+    ary.sort(function(){return Math.random()-Math.random();});
+    }
+    var cnt=0;arySort();
+    function RandomMsg(){
+    if(cnt>=MsgCnt)cnt=0,arySort();
+    document.write(Msg[ary[cnt++]]);
+    }
+  </script>
+
+
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'sleeps/setup' %></div>
+      <div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),sleeps_setup_path %></div>
       <div class="title">今日の睡眠時間</div>
       <div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
     </div>
@@ -100,21 +129,21 @@
           <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize1, :style => "transform: translate(50px,#{top1}px)"),edit_sleep_path(sleep)%>
         </div>
         <div class="deeply">
-          <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(200px,#{top2}px)"),edit_sleep_path(sleep)%>
+          <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(205px,#{top2}px)"),edit_sleep_path(sleep)%>
         </div>
         <% elsif sleep.type==1 %>
           <div class="nap">
             <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize1, :style => "transform: translate(50px,#{top1}px)"),edit_sleep_path(sleep)%>
           </div>
           <div class="nap">
-            <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(200px,#{top2}px)"),edit_sleep_path(sleep)%>
+            <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(205px,#{top2}px)"),edit_sleep_path(sleep)%>
           </div>
         <% else sleep.type==2 %>
           <div class="doze">
             <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize1, :style => "transform: translate(50px,#{top1}px)"),edit_sleep_path(sleep)%>
           </div>
           <div class="doze">
-            <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(200px,#{top2}px)"),edit_sleep_path(sleep)%>
+            <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize2, :style => "transform: translate(205px,#{top2}px)"),edit_sleep_path(sleep)%>
           </div>
         <% end %> 
     
@@ -125,36 +154,32 @@
 
         <% if sleep.type==0%>
         <div class="deeply">
-          <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(200px,#{top}px)"),edit_sleep_path(sleep)%>
+          <%= link_to image_tag("sleep1.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(205px,#{top}px)"),edit_sleep_path(sleep)%>
         </div>
       <% elsif sleep.type==1 %>
         <div class="nap">
-          <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(200px,#{top}px)"),edit_sleep_path(sleep)%>
+          <%= link_to image_tag("sleep2.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(205px,#{top}px)"),edit_sleep_path(sleep)%>
         </div>
       <% else sleep.type==2 %>
         <div class="doze">
-          <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(200px,#{top}px)"),edit_sleep_path(sleep)%>
+          <%= link_to image_tag("sleep3.png", :width=>'120', :height=> sleepsize, :style => "transform: translate(205px,#{top}px)"),edit_sleep_path(sleep)%>
         </div>
       <% end %> 
 
       <% end %>
-      
-      
-      
-        
-      
+
     </p>
   <% end %>
-
-  <div class="records">
-    
-    
-    
-  </div>
- 
+  <div class="right"><%= link_to image_tag("right.png"),sleeps_index2_path %></div>
+  
   <div class="grass"><%= image_tag 'grass.png'%></div>
   <div class="sheep"><%= image_tag 'sheep1A.png'%></div>
   <div class="balloon"><%= image_tag 'balloon.png'%></div> 
+  <div class="message"><script type="text/javascript">RandomMsg()</script></div>
+
+
+
+
 
 </body>
 </html>

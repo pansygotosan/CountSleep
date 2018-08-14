@@ -39,6 +39,22 @@ header{
 	background-size: cover;
 }
 
+.right img{
+	position: absolute;
+	top:330px;
+	width: 15px;
+	right: 10px;
+	opacity:0.5;
+
+}
+.left img{
+	position: absolute;
+	top:330px;
+	width: 15px;
+	left:10px;
+	opacity:0.5;
+}
+
 .grass img{
 	width:100%;
 	position: fixed;
@@ -54,10 +70,21 @@ header{
 .balloon img{
 	width:60%;
 	position: fixed;
-	bottom:95px;
-	left:10px;
-	
+	bottom:90px;
+	left:10px;	
 }
+
+.message{
+	position: fixed;
+	width:165px;
+	height:65px;
+	bottom:115px;
+	left:40px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 
 /*今日の睡眠時間*/
 .day table {

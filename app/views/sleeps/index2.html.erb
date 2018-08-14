@@ -7,11 +7,39 @@
 <meta name="apple-mobile-web-app-title" content="bagelee">
 	<meta charset="UTF-8" />
 	<title>CountSleep-week</title>
+
+	<script type="text/javascript">
+    var MsgCnt=10; //メッセージの総数
+
+    var Msg=[];
+    Msg[1]="メッセージ1";
+    Msg[2]="メッセージ2";
+    Msg[3]="メッセージ3";
+    Msg[4]="メッセージ4";
+    Msg[5]="メッセージ5";
+    Msg[6]="メッセージ6";
+    Msg[7]="メッセージ7";
+    Msg[8]="メッセージ8";
+    Msg[9]="メッセージ9";
+    Msg[10]="メッセージ10";
+
+    var ary=[];
+    for(var i=0;i<MsgCnt;i++)ary[i]=i+1;
+    function arySort(){
+    ary.sort(function(){return Math.random()-Math.random();});
+    }
+    var cnt=0;arySort();
+    function RandomMsg(){
+    if(cnt>=MsgCnt)cnt=0,arySort();
+    document.write(Msg[ary[cnt++]]);
+    }
+  </script>
+
 </head>
 <body>
  	<header>
 		<div class="container">
-			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),'setup' %></div>
+			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),sleeps_setup_path %></div>
 	      	<div class="title">今週の睡眠時間</div>
 	      	<div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
 		</div>
@@ -238,8 +266,12 @@
 	
 	<div class="goalline"></div>
 
+	<div class="right"><%= link_to image_tag("right.png"),sleeps_index3_path %></div>
+	<div class="left"><%= link_to image_tag("left.png"),sleeps_index_path %></div>
+
 	<div class="grass"><%= image_tag 'grass.png'%></div>
   	<div class="sheep"><%= image_tag 'sheep2B.png'%></div>
   	<div class="balloon"><%= image_tag 'balloon.png'%></div>
+  	<div class="message"><script type="text/javascript">RandomMsg()</script></div>
 </body>
 </html>

@@ -35,3 +35,14 @@
 	padding: 10px 20px;
 	border-bottom: solid 1px gray; 
 }
+
+
+input {
+  border: 1px solid #88bfbf;
+  border-radius: 5px;
+  padding: 5px;
+}
+input:focus {
+  border: 1px solid #88bfbf;
+  outline: 0;
+}
