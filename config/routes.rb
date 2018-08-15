@@ -6,10 +6,8 @@ Rails.application.routes.draw do
   get 'sleeps/setup'
   get 'sleeps/show'
   get 'sleeps/new'
-  # get 'sleeps/edit'
   get 'sleeps/user'
   get 'sleeps/setgoal'
-  get 'registrations/edit'
   devise_for :users
   resources :sleeps
   get 'home/index'

@@ -10,7 +10,7 @@
 </head>
 
 <body class="top">
-  <div class="icon">
+  <div class="icon2">
     <%= image_tag("icon.png", :size => "150x150") %>
     <div class="CountSleep">CountSleep</div>
   </div>
@@ -27,6 +27,11 @@
     <div class="field2">
       <%= f.label :ユーザーネーム %><br />
       <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    </div>
+
+    <div class="field2">
+      <%= f.label :目標睡眠時間 %><br />
+      <%= f.select :target_sleeptime,[["1",1], ["2", 2],["3", 3],["4", 4],["5", 5],["6", 6],["7", 7],["8", 8],["9", 9],["10", 10],["11", 11],["12", 12],["13", 13],["14", 14],["15", 15],["16", 16],["17", 17],["18", 18]],:selected=>6, autofocus: true, autocomplete: "target_sleeptime" %>時間
     </div>
 
     <div class="field2">

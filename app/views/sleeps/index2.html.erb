@@ -12,16 +12,16 @@
     var MsgCnt=10; //メッセージの総数
 
     var Msg=[];
-    Msg[1]="メッセージ1";
-    Msg[2]="メッセージ2";
-    Msg[3]="メッセージ3";
-    Msg[4]="メッセージ4";
-    Msg[5]="メッセージ5";
-    Msg[6]="メッセージ6";
-    Msg[7]="メッセージ7";
-    Msg[8]="メッセージ8";
-    Msg[9]="メッセージ9";
-    Msg[10]="メッセージ10";
+    Msg[1]="6〜7時間の睡眠がベスト";
+    Msg[2]="0時から6時は睡眠の質がいいよ";
+    Msg[3]="昼寝は30分までにおさめよう";
+    Msg[4]="メェ〜〜〜〜〜";
+    Msg[5]="よく眠れた？";
+    Msg[6]="羊を数えるのはあまり効果がないらしいよ";
+    Msg[7]="zzz...";
+    Msg[8]="週末にまとめて寝るのはよくないよ";
+    Msg[9]="寝すぎは体に良くないらしいメェ";
+    Msg[10]="今日はどれくらい寝た？";
 
     var ary=[];
     for(var i=0;i<MsgCnt;i++)ary[i]=i+1;
@@ -39,13 +39,13 @@
 <body>
  	<header>
 		<div class="container">
-			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),sleeps_setup_path %></div>
+			<div class="button"><%= link_to image_tag("gear.png", :size => "40x40"),sleeps_setup_path %></div>
 	      	<div class="title">今週の睡眠時間</div>
-	      	<div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
+	      	<div class="button"><%= link_to image_tag("pen.png", :size => "40x40"),new_sleep_path %></div>
 		</div>
 	</header>
 	<div class="week">
-		<% sleepgoal=6*3600 %>
+		<% sleepgoal=current_user.target_sleeptime*3600 %>
 		<% six=0 %>
 		<% five=0 %>
 		<% four=0 %>
@@ -69,7 +69,7 @@
 				<% sleeps_day = @sleeps.where(start: date.in_time_zone.all_day ) %>
 				
 				<% if sleeps_day %>
-					<% sleepgoal=12*3600 %>
+					<% sleepgoal=current_user.target_sleeptime*3600 %>
 					<% sleepsum=0 %>
 
 					<% sleeps_day.each do |sleep| %>
@@ -79,7 +79,7 @@
 					    <% sleepsum+=sleeptime%>				    
 				    <% end %>
 
-				        <% six=five %>
+				    <% six=five %>
 						<% five=four %>
 						<% four=tree %>
 						<% tree=two %>
@@ -88,114 +88,105 @@
 						<% zero=sleepsum %>
 
 
-						<% size6=six*130/sleepgoal %>
-						<% size5=five*130/sleepgoal %>	
-						<% size4=four*130/sleepgoal %>
-						<% size3=tree*130/sleepgoal %>
-						<% size2=two*130/sleepgoal %>
-						<% size1=one*130/sleepgoal %>
-						<% size0=zero*130/sleepgoal %>
+						<% size6=six*107/sleepgoal %>
+						<% size5=five*107/sleepgoal %>	
+						<% size4=four*107/sleepgoal %>
+						<% size3=tree*107/sleepgoal %>
+						<% size2=two*107/sleepgoal %>
+						<% size1=one*107/sleepgoal %>
+						<% size0=zero*107/sleepgoal %>
 
 			
 				<% end %>
 			<% end %>
 
 
-			<% if size6>300 %>
-			<% size6=300 %>
+			<% if size6>245 %>
+			<% size6=245 %>
 			<% end %>
-			<% if size5>300 %>
-			<% size5=300 %>
+			<% if size5>245 %>
+			<% size5=245 %>
 			<% end %>
-			<% if size4>300 %>
-			<% size4=300 %>
+			<% if size4>245 %>
+			<% size4=245 %>
 			<% end %>
-			<% if size4>300 %>
-			<% size4=300 %>
+			<% if size4>245 %>
+			<% size4=245 %>
 			<% end %>
-			<% if size3>300 %>
-			<% size3=300 %>
+			<% if size3>245 %>
+			<% size3=245 %>
 			<% end %>
-			<% if size2>300 %>
-			<% size2=300 %>
+			<% if size2>245 %>
+			<% size2=245 %>
 			<% end %>
-			<% if size1>300 %>
-			<% size1=300 %>
+			<% if size1>245 %>
+			<% size1=245 %>
 			<% end %>
-			<% if size0>300 %>
-			<% size0=300 %>
+			<% if size0>245 %>
+			<% size0=245 %>
 			<% end %>
 
-			
-
-			<% if size1<=80 %>
-
-			<% elsif size1>=220 %>
-
-			<% else %>
-
-			<% end %>
 				<div class="bar">
-					<% if size6<=80 %>
-						<%= image_tag("sleep3.png", :width=>size6, :height=> '16') %>
-					<% elsif size6>=220 %>
-						<%= image_tag("sleep2.png", :width=>size6, :height=> '16') %>
+					<% if size6<=72 %>
+						<%= image_tag("sleep3.png", :width=>size6, :height=> '17') %>
+					<% elsif size6>=145 %>
+						<%= image_tag("sleep2.png", :width=>size6, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size6, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size6, :height=> '17') %>
 					<% end %>
 				</div>
 				<div class="bar">
-					<% if size5<=80 %>
-						<%= image_tag("sleep3.png", :width=>size5, :height=> '16') %>
-					<% elsif size5>=220 %>
-						<%= image_tag("sleep2.png", :width=>size5, :height=> '16') %>
+					<% if size5<=72 %>
+						<%= image_tag("sleep3.png", :width=>size5, :height=> '17') %>
+					<% elsif size5>=145 %>
+						<%= image_tag("sleep2.png", :width=>size5, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size5, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size5, :height=> '17') %>
 					<% end %>
 				</div>
 				<div class="bar">
-					<% if size4<=80 %>
-						<%= image_tag("sleep3.png", :width=>size4, :height=> '16') %>
-					<% elsif size4>=220 %>
-						<%= image_tag("sleep2.png", :width=>size4, :height=> '16') %>
+					<% if size4<=72 %>
+						<%= image_tag("sleep3.png", :width=>size4, :height=> '17') %>
+					<% elsif size4>=145 %>
+						<%= image_tag("sleep2.png", :width=>size4, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size4, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size4, :height=> '17') %>
 					<% end %>
 				</div>
 				<div class="bar">
-					<% if size3<=80 %>
-						<%= image_tag("sleep3.png", :width=>size3, :height=> '16') %>
-					<% elsif size3>=220 %>
-						<%= image_tag("sleep2.png", :width=>size3, :height=> '16') %>
+					<% if size3<=72 %>
+						<%= image_tag("sleep3.png", :width=>size3, :height=> '17') %>
+					<% elsif size3>=145 %>
+						<%= image_tag("sleep2.png", :width=>size3, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size3, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size3, :height=> '17') %>
 					<% end %>
 				</div>
 				<div class="bar">
-					<% if size2<=80 %>
-						<%= image_tag("sleep3.png", :width=>size2, :height=> '16') %>
-					<% elsif size2>=220 %>
-						<%= image_tag("sleep2.png", :width=>size2, :height=> '16') %>
+					<% if size2<=72 %>
+						<%= image_tag("sleep3.png", :width=>size2, :height=> '17') %>
+					<% elsif size2>=145 %>
+						<%= image_tag("sleep2.png", :width=>size2, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size2, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size2, :height=> '17') %>
 					<% end %>
 				</div>
 				<div class="bar">
-					<% if size1<=80 %>
-						<%= image_tag("sleep3.png", :width=>size1, :height=> '16') %>
-					<% elsif size1>=220 %>
-						<%= image_tag("sleep2.png", :width=>size1, :height=> '16') %>
+					<% if size1<=72 %>
+						<%= image_tag("sleep3.png", :width=>size1, :height=> '17') %>
+					<% elsif size1>=145 %>
+						<%= image_tag("sleep2.png", :width=>size1, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size1, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size1, :height=> '17') %>
 					<% end %>
 				</div>
 				<div class="bar">
-					<% if size0<=80 %>
-						<%= image_tag("sleep3.png", :width=>size0, :height=> '16') %>
-					<% elsif size0>=220 %>
-						<%= image_tag("sleep2.png", :width=>size0, :height=> '16') %>
+					<% if size0<=72 %>
+						<%= image_tag("sleep3.png", :width=>size0, :height=> '17') %>
+					<% elsif size0>=145 %>
+						<%= image_tag("sleep2.png", :width=>size0, :height=> '17') %>
 					<% else %>
-						<%= image_tag("sleep1.png", :width=>size0, :height=> '16') %>
+						<%= image_tag("sleep1.png", :width=>size0, :height=> '17') %>
 					<% end %>
 				</div>
 
@@ -275,3 +266,5 @@
   	<div class="message"><script type="text/javascript">RandomMsg()</script></div>
 </body>
 </html>
+
+

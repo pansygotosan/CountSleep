@@ -5,7 +5,7 @@ class SleepsController < ApplicationController
 	@@range = Date.today.beginning_of_day..Date.today.end_of_day
 
 	def index
-	  @sleeps = Sleep.where(["start > ? and start < ? or finish > ? and finish < ? ", Time.current.beginning_of_day, Time.current.end_of_day, Time.current.beginning_of_day, Time.current.end_of_day ])
+	  @sleeps = current_user.sleeps.where(["start > ? and start < ? or finish > ? and finish < ? ", Time.current.beginning_of_day, Time.current.end_of_day, Time.current.beginning_of_day, Time.current.end_of_day ])
 	end
 
 	def index2

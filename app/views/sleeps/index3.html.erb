@@ -12,16 +12,16 @@
     var MsgCnt=10; //メッセージの総数
 
     var Msg=[];
-    Msg[1]="メッセージ1";
-    Msg[2]="メッセージ2";
-    Msg[3]="メッセージ3";
-    Msg[4]="メッセージ4";
-    Msg[5]="メッセージ5";
-    Msg[6]="メッセージ6";
-    Msg[7]="メッセージ7";
-    Msg[8]="メッセージ8";
-    Msg[9]="メッセージ9";
-    Msg[10]="メッセージ10";
+    Msg[1]="6〜7時間の睡眠がベスト";
+    Msg[2]="0時から6時は睡眠の質がいいよ";
+    Msg[3]="昼寝は30分までにおさめよう";
+    Msg[4]="メ〜〜〜〜〜〜〜〜";
+    Msg[5]="よく眠れた？";    
+    Msg[6]="羊を数えるのはあまり効果がないらしいよ";
+    Msg[7]="zzz...";
+    Msg[8]="週末にまとめて寝るのはよくないよ";
+    Msg[9]="寝すぎも寿命縮むよ";
+    Msg[10]="今日はどれくらい寝た？";
 
     var ary=[];
     for(var i=0;i<MsgCnt;i++)ary[i]=i+1;
@@ -39,9 +39,9 @@
 <body>
 	<header>
 		<div class="container">
-			<div class="button"><%= link_to image_tag("gear.png", :size => "50x50"),sleeps_setup_path %></div>
+			<div class="button"><%= link_to image_tag("gear.png", :size => "40x40"),sleeps_setup_path %></div>
 	      	<div class="title">これまでの睡眠時間</div>
-	      	<div class="button"><%= link_to image_tag("pen.png", :size => "50x50"),new_sleep_path %></div>
+	      	<div class="button"><%= link_to image_tag("pen.png", :size => "40x40"),new_sleep_path %></div>
 		</div>
 	</header>
 	<div class="month">
@@ -50,7 +50,7 @@
 			<% sleeps_day = @sleeps.where(start: date.in_time_zone.all_day ) %>
 			
 			<% if sleeps_day %>
-				<% sleepgoal=6*3600 %>
+				<% sleepgoal=current_user.target_sleeptime*3600 %>
 				<% sleepsum=0 %>
 
 				<% sleeps_day.each do |sleep| %>
@@ -79,11 +79,12 @@
 
 	<div class="grass"><%= image_tag 'grass.png'%></div>
 	<div class="sheep"><%= image_tag 'sheep1C.png'%></div>
-	<div class="balloon"><%= image_tag 'balloon.png'%></div>
-	<div class="message"><script type="text/javascript">RandomMsg()</script></div>
 	<div class="wool1"><%= image_tag 'wool1.png'%></div>
 	<div class="wool2"><%= image_tag 'wool2.png'%></div>
 	<div class="wool3"><%= image_tag 'wool3.png'%></div>
+	<div class="balloon"><%= image_tag 'balloon.png'%></div>
+	<div class="message"><script type="text/javascript">RandomMsg()</script></div>
+	
 
 </body>
 </html>
