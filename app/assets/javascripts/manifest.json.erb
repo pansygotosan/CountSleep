@@ -1,0 +1,17 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "CountSleep", #アプリの長い名前
+  "short_name": "CountSleep", #アプリの短い名前
+  "start_url": "/", #起動時のパス
+  "icons": [
+    {
+      "src": "<%=image_path("CountSleep.png")%>", #アイコン
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "theme_color": "#fbb03b", #テーマ
+  "background_color": "#9ce4ff", #起動時の色
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
