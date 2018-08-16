@@ -10,7 +10,7 @@
 .CountSleep{
 	padding-bottom:20px;
 	color:rgb(255,255,249);
-	font-size: 20px;
+
 }
 
 .homeicon{
@@ -19,9 +19,11 @@
 }
 .icon{
 	padding-top:80px;
+	font-size: 20px;
 }
 .icon2{
-	padding-top:50px;
+	padding-top:30px;
+	font-size: 20px;
 }
 .fild2{
 	width:130px;
@@ -31,12 +33,30 @@
 	background-color:rgb(136,191,191);
 }
 .home1{
-	font-size: 20px;
-	padding:30px;
+	width:150px;
+	background-color:rgb(255,255,249);
+	font-size: 12px;
+	padding:5px;
+	margin:15px auto;
+	border-radius: 14px 14px 14px 14px;
+	color:rgb(136,191,191);
 }
+.home1 link{
+	color:rgb(136,191,191);
+}
+
+
 .home2{
-	font-size: 20px;
-	padding:30px;
+	width:150px;	
+	border: 1px solid #fffff9;
+	font-size: 12px;
+	padding:5px;
+	margin:15px auto;
+	border-radius: 14px 14px 14px 14px;
+	color:rgb(255,255,249);
+}
+.home2 link{
+	color:rgb(255,255,249);
 }
 
 .container2{
