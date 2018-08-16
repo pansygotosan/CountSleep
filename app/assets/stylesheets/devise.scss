@@ -29,13 +29,22 @@
 .link{
 	background-color:rgb(136,191,191);
 }
+a{
+	text-decoration: none;
+	color:rgb(81,72,68);
+}
+
 .home1{
 	width:150px;
 	background-color:rgb(255,255,249);
 	font-size: 12px;
-	padding:5px;
+	padding:10px;
 	margin:15px auto;
 	border-radius: 20px 20px 20px 20px;
+	
+	text-decoration:none;
+}
+.home1 a{
 	color:rgb(136,191,191);
 }
 
@@ -44,11 +53,16 @@
 	width:150px;	
 	border: 1px solid #fffff9;
 	font-size: 12px;
-	padding:5px;
+	padding:10px;
 	margin:15px auto;
 	border-radius: 20px 20px 20px 20px;
+	
+}
+.home2 a{
 	color:rgb(255,255,249);
 }
+
+
 
 .container2{
 	background-color:rgb(136,191,191);
