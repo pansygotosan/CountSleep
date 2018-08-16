@@ -1,2 +1,23 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="bagelee">
+  <meta charset="UTF-8" />
+  <title>ログイン</title>
+</head>
+<body class="top">
+  <div class="icon">
+    <%= image_tag("icon.png", :size => "150x150") %>
+    <div class="CountSleep">CountSleep</div>
+  </div>
+
+  <div class="link">
+    <%= render "devise/shared/links" %>
+  </div>
+
+</body>
+</html>
+

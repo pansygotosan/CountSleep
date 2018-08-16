@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :sleeps
   get 'home/index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get "/"=>"sleeps#index"
+  get "/"=>"home#index"
 
 devise_scope :user do
        get '/users/sign_out' => 'devise/sessions#destroy'
@@ -23,7 +23,7 @@ devise_scope :user do
     end
 
     unauthenticated :users do
-        root :to => "sleeps#index"
+        root :to => "home#index"
     end
 
 
