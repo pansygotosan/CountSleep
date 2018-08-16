@@ -23,7 +23,7 @@ devise_scope :user do
     end
 
     unauthenticated :users do
-        root :to => "sessions#new"
+        root :to => "sleeps#index"
     end
 
 
