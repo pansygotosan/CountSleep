@@ -25,7 +25,7 @@
 	padding-top:30px;
 	font-size: 20px;
 }
-.fild2{
+input.fild2{
 	width:130px;
 }
 
@@ -38,10 +38,7 @@
 	font-size: 12px;
 	padding:5px;
 	margin:15px auto;
-	border-radius: 14px 14px 14px 14px;
-	color:rgb(136,191,191);
-}
-.home1 link{
+	border-radius: 20px 20px 20px 20px;
 	color:rgb(136,191,191);
 }
 
@@ -52,10 +49,7 @@
 	font-size: 12px;
 	padding:5px;
 	margin:15px auto;
-	border-radius: 14px 14px 14px 14px;
-	color:rgb(255,255,249);
-}
-.home2 link{
+	border-radius: 20px 20px 20px 20px;
 	color:rgb(255,255,249);
 }
 
@@ -76,6 +70,7 @@
 
 
 input {
+	width:120px;
   border: 1px solid #88bfbf;
   border-radius: 5px;
   padding: 5px;
