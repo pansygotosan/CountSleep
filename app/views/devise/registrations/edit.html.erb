@@ -32,7 +32,7 @@
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <div>Currently waiting confirmation for: <%= resourc.unconfirmed_email %></div>
     <% end %>
 
     <div class="field">
@@ -45,7 +45,7 @@
       <%= f.password_field :password, autocomplete: "off" %>
 <% if @minimum_password_length %>
       <br />
-      <em>(<%= @minimum_password_length %> 文字以上　 変更しない場合は空白のままで)</em>
+      (<%= @minimum_password_length %> 文字以上　 変更しない場合は空白のままで)
     <% end %>
     </div>
 
